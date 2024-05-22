@@ -5,7 +5,6 @@ import uuid
 import gradio as gr
 import numpy as np
 from PIL import Image
-import spaces
 import torch
 from diffusers import StableDiffusionXLPipeline, EulerAncestralDiscreteScheduler
 
@@ -58,7 +57,6 @@ def randomize_seed_fn(seed: int, randomize_seed: bool) -> int:
 MAX_SEED = np.iinfo(np.int32).max
 
 # Define the generation function with GPU support
-@spaces.GPU(enable_queue=True)
 def generate(
     prompt: str,
     negative_prompt: str = "",
